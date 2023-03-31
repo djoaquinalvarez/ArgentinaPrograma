@@ -1,9 +1,9 @@
-package org.joaquinalvarez.argentinaprograma.ejercicios.guia7.prueba;
+package org.joaquinalvarez.argentinaprograma.ejercicios.guia8.prueba;
 
-import org.joaquinalvarez.argentinaprograma.ejercicios.guia7.modelo.Carrito;
-import org.joaquinalvarez.argentinaprograma.ejercicios.guia7.modelo.Descuento;
-import org.joaquinalvarez.argentinaprograma.ejercicios.guia7.modelo.ItemCarrito;
-import org.joaquinalvarez.argentinaprograma.ejercicios.guia7.modelo.Producto;
+import org.joaquinalvarez.argentinaprograma.ejercicios.guia8.modelo.Carrito;
+import org.joaquinalvarez.argentinaprograma.ejercicios.guia8.modelo.Descuento;
+import org.joaquinalvarez.argentinaprograma.ejercicios.guia8.modelo.ItemCarrito;
+import org.joaquinalvarez.argentinaprograma.ejercicios.guia8.modelo.Producto;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -15,7 +15,7 @@ public class EjemploCarrito {
         Carrito carrito = new Carrito();
 
         //Para crear los items y los productos, vamos a tomar los datos de un archivo
-        String archivo = "C:\\Users\\Usuario\\Desktop\\Escritorio\\UTN\\Curso Argentina Programa - Java\\Argentina Programa - Curso Java\\src\\main\\java\\org\\joaquinalvarez\\argentinaprograma\\ejercicios\\guia7\\datos.txt";
+        String archivo = "C:\\Users\\Usuario\\Desktop\\Escritorio\\UTN\\Curso Argentina Programa - Java\\Argentina Programa - Curso Java\\src\\main\\java\\org\\joaquinalvarez\\argentinaprograma\\ejercicios\\guia8\\datos.txt";
         for(String linea : Files.readAllLines(Paths.get(archivo))){
             String[] datos = linea.split(";");
 

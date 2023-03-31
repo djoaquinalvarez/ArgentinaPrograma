@@ -1,4 +1,4 @@
-package org.joaquinalvarez.argentinaprograma.ejercicios.guia7.modelo;
+package org.joaquinalvarez.argentinaprograma.ejercicios.guia8.modelo;
 
 public class DescuentoPorcentaje extends Descuento{
 
@@ -27,6 +27,11 @@ public class DescuentoPorcentaje extends Descuento{
 
     @Override
     public double calcularDescuento(double total) throws Exception {
-        return (total - (total * this.porcentajeDescuento) / 100);
+        double resultadoDescuento = total - (total * this.porcentajeDescuento) / 100;
+        if(resultadoDescuento >= 0){
+            return resultadoDescuento;
+        }else{
+            throw new Exception("El valor del descuento aplicado no puede superar el valor de la compra realizada.");
+        }
     }
 }

@@ -1,4 +1,4 @@
-package org.joaquinalvarez.argentinaprograma.ejercicios.guia7.modelo;
+package org.joaquinalvarez.argentinaprograma.ejercicios.guia8.modelo;
 
 import javax.swing.tree.ExpandVetoException;
 
@@ -22,8 +22,12 @@ public class DescuentoPorcentajeConTope extends DescuentoPorcentaje{
     @Override
     public double calcularDescuento(double total) throws Exception {
         if(this.porcentajeDescuento <= this.topeDescuento){
-            return (total * this.porcentajeDescuento) / 100;
-
+            double resultadoDescuento = (total * this.porcentajeDescuento) / 100;
+            if(resultadoDescuento >= 0){
+                return resultadoDescuento;
+            }else{
+                throw new Exception("El valor del descuento aplicado no puede superar el valor de la compra realizada.");
+            }
         }else{
             throw new Exception("El porcentaje de descuento ha superado el tope permitido");
         }

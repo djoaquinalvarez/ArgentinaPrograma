@@ -6,6 +6,8 @@ public class DescuentoFijo extends Descuento{
         super(0);
     }
 
-
-
+    @Override
+    public double calcularDescuento(double total) {
+        return (total - this.valorDescuento);
+    }
 }

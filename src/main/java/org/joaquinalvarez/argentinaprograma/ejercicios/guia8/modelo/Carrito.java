@@ -1,7 +1,9 @@
-package org.joaquinalvarez.argentinaprograma.ejercicios.guia7.modelo;
+package org.joaquinalvarez.argentinaprograma.ejercicios.guia8.modelo;
 
 import java.awt.color.ICC_ColorSpace;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 
@@ -9,7 +11,7 @@ public class Carrito {
 
     //Declaracion de atributos
     private Integer numeroCarrito;
-    private ItemCarrito[] itemsCarrito;
+    private List<ItemCarrito> itemsCarrito;
     private LocalDate fechaCompra;
     private double descuento;
 
@@ -19,7 +21,7 @@ public class Carrito {
     //CONSTRUCTOR
     public Carrito() {
         descuento = 0;
-        this.itemsCarrito = new ItemCarrito[3];
+        this.itemsCarrito = new ArrayList<>();
     }
 
     //GETTERS AND SETTERS
@@ -31,11 +33,11 @@ public class Carrito {
         this.numeroCarrito = numeroCarrito;
     }
 
-    public ItemCarrito[] getItemCarrito() {
+    public List<ItemCarrito> getItemCarrito() {
         return itemsCarrito;
     }
 
-    public void setItemCarrito(ItemCarrito[] itemCarrito) {
+    public void setItemCarrito(List<ItemCarrito> itemCarrito) {
         this.itemsCarrito = itemCarrito;
     }
 
@@ -71,6 +73,11 @@ public class Carrito {
         String decision = scanner.next();
 
         if(decision.equalsIgnoreCase("y")) {
+
+            if(total == 0 ){
+                throw new Exception("No se puede agregar un descuento a un carrito que no posee items.");
+            }
+
             System.out.println("Desea indicar un descuento fijo o un porcentaje sobre el valor de la compra? \n (f) Descuento fijo \n (p) Descuento porcentual");
             decision = scanner.next();
             if (decision.equalsIgnoreCase("f")) {
@@ -109,16 +116,6 @@ public class Carrito {
 
 
     public void agregarItem(ItemCarrito itemCarrito){
-        boolean bandera = false; //bandera para saber si el carrito esta lleno o no
-        for(int i = 0; i < this.itemsCarrito.length; i++){
-            if (itemsCarrito[i] == null) {
-                itemsCarrito[i] = itemCarrito;
-                bandera = true;
-                break;
-            }
-        }
-        if (!bandera){
-            System.out.println("¡El carrito de compras esta lleno!");
-        }
+        itemsCarrito.add(itemCarrito);
     }
 }

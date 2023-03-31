@@ -1,4 +1,4 @@
-package org.joaquinalvarez.argentinaprograma.ejercicios.guia7.modelo;
+package org.joaquinalvarez.argentinaprograma.ejercicios.guia8.modelo;
 
 public class Descuento {
     protected double valorDescuento;
